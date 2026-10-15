@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="smart waste system"/>
+        <attribute name="authors" value="ok"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-15 05:10:57 PM"/>
+        <attribute name="created" value="b2s7REVTS1RPUC0yQjYyQVNJOzIwMjYtMTAtMTU7MDI6NTI6NDggUE07MjUyNA=="/>
+        <attribute name="edited" value="b2s7REVTS1RPUC0yQjYyQVNJOzIwMjYtMTAtMTU7MDU6MTA6NTcgUE07MjsyNjMw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="residentName, location, wasteDescription, reportStatus, pending, assignedTeam, collectionTeam" type="String" array="False" size=""/>
+            <declare name="reportID, reportCount, maxlenght, i" type="Integer" array="False" size=""/>
+            <declare name="isValid" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Welcome To The Smart Waste System&quot;" newline="True"/>
+            <output expression="&quot; Enter Resident Name&quot;" newline="True"/>
+            <input variable="residentName"/>
+            <output expression="&quot;Enter Location&quot;" newline="True"/>
+            <input variable="location"/>
+            <output expression="&quot;Describe Waste&quot;" newline="True"/>
+            <input variable="wasteDescription"/>
+            <assign variable="isValid" expression="(residentName != &quot;&quot; AND location != &quot;&quot; AND wasteDescription != &quot;&quot;)"/>
+            <if expression="isValid = True">
+                <then>
+                    <output expression="&quot; Create A unique Report ID&quot;" newline="True"/>
+                    <input variable="reportID"/>
+                    <assign variable="reportStatus" expression="&quot;pending&quot;"/>
+                    <output expression="&quot;Report Saved Successfully......&quot;" newline="True"/>
+                    <assign variable="assignedTeam" expression="&quot;collectionTeam&quot;"/>
+                    <output expression="&quot;Report ID&quot;  &amp;  reportID" newline="True"/>
+                    <output expression="&quot; Reort Status&quot;  &amp;  reportStatus" newline="True"/>
+                    <output expression="&quot;Assigned Team&quot;  &amp;  assignedTeam" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Go Back invalid Entry&quot;" newline="True"/>
+                    <for variable="i" start="1" end="2" direction="inc" step="1">
+                        <output expression="&quot;Enter Resident Name&quot;" newline="True"/>
+                        <input variable="residentName"/>
+                        <output expression="&quot;Enter Location&quot;" newline="True"/>
+                        <input variable="location"/>
+                        <output expression="&quot;Descibe waste&quot;" newline="True"/>
+                        <input variable="wasteDescription"/>
+                    </for>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
